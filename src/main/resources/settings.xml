@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">  
+  <interactiveMode>true</interactiveMode>
+  <offline>false</offline>
+
+  <pluginGroups>
+  </pluginGroups>
+
+  <proxies>
+  </proxies>
+
+  <servers>
+    <server>
+      <id>repo</id>
+
+      <username>bamboo</username>
+      <password>bamboo1</password>
+
+    </server>
+  </servers>
+  
+
+  <mirrors>
+  </mirrors>
+  <profiles>
+    <profile>
+      <id>artifactory</id>
+      <repositories>
+        <repository>
+        <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+        </snapshots>
+        <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+        </releases>
+          <id>ghx-all</id>
+          <name>ghx-all</name>
+          <url>https://ghxrepo.artifactoryonline.com/ghxrepo/ghx-all</url>
+        </repository>
+
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>artifactory</id>
+          <name>plugins-release</name>
+          <url>https://ghxrepo.artifactoryonline.com/ghxrepo/plugins-release</url>
+        </pluginRepository>
+        <pluginRepository>
+          <snapshots />
+          <id>artifactory-snapshot</id>
+          <name>plugins-snapshot</name>
+          <url>https://ghxrepo.artifactoryonline.com/ghxrepo/plugins-snapshot</url>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>artifactory</activeProfile>
+  </activeProfiles>
+</settings>
