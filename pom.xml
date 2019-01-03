@@ -6,7 +6,9 @@
 	<groupId>com.slin</groupId>
 	<artifactId>boot-h2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-
+	<properties>
+		<docker.image.prefix>springio</docker.image.prefix>
+	</properties>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -59,7 +61,27 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
-			
+
 		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.slin</groupId>
+				<artifactId>boot-h2</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+				<executions>
+					<execution>
+						<id>default</id>
+						<goals>
+							<goal>build</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<repository>${docker.image.prefix}/${project.artifactId}</repository>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
